@@ -37,5 +37,6 @@ class SplashFragment : Fragment() {
 
     private fun openRegisterFragment() {
         findNavController().navigate(R.id.action_splashFragment_to_homeFragment)
+
     }
 }
