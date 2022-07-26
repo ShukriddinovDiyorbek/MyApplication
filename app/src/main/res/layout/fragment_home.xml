@@ -40,419 +40,436 @@
             </LinearLayout>
         </Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
-
-<!--    <LinearLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:orientation="vertical">-->
-<!--        <LinearLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:orientation="horizontal"-->
-<!--            android:layout_marginTop="10dp"-->
-<!--            android:layout_marginEnd="16dp"-->
-<!--            android:layout_height="wrap_content">-->
-<!--            <LinearLayout-->
-<!--                android:layout_weight="1"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:orientation="horizontal"-->
-<!--                android:layout_marginStart="16dp"-->
-<!--                android:layout_height="wrap_content">-->
-<!--                <ImageView-->
-<!--                    android:layout_gravity="end"-->
-<!--                    android:src="@drawable/profile_img"-->
-<!--                    android:layout_width="56dp"-->
-<!--                    android:layout_height="56dp"/>-->
-<!--                <TextView-->
-
-<!--                    android:text="Siz"-->
-<!--                    android:textColor="@color/black"-->
-<!--                    android:textStyle="bold"-->
-<!--                    android:layout_gravity="center_vertical"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"/>-->
-<!--            </LinearLayout>-->
-<!--            <LinearLayout-->
-<!--                android:layout_gravity="end"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:orientation="horizontal"-->
-<!--                android:layout_height="wrap_content">-->
-<!--                <ImageView-->
-<!--                    android:layout_gravity="end"-->
-<!--                    android:src="@drawable/profile_img"-->
-<!--                    android:layout_width="56dp"-->
-<!--                    android:layout_height="56dp"/>-->
-<!--                <TextView-->
-
-<!--                    android:text="Do'stingiz"-->
-<!--                    android:textColor="@color/black"-->
-<!--                    android:textStyle="bold"-->
-<!--                    android:layout_gravity="center_vertical"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"/>-->
-<!--            </LinearLayout>-->
-
-<!--        </LinearLayout>-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/background"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_marginTop="64dp"
-            android:gravity="center"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:weightSum="10">
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="0.25" />
-
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="0.25" />
-
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            android:gravity="center_vertical"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/layout_background"
+            android:layout_marginStart="16dp"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:src="@drawable/profile_img"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"/>
+                <TextView
+                    android:text="Siz"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:src="@drawable/profile_img"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"/>
+                <TextView
+                    android:text="Do'stingiz"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+        </LinearLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginLeft="35dp"
-                android:layout_marginRight="35dp"
-                android:layout_weight="4"
-                android:background="@drawable/grid"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:weightSum="10">
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="0.5" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="2.85"
-                    android:orientation="horizontal"
-                    android:weightSum="10">
-
-
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.15" />
-
-                    <FrameLayout
-                        android:id="@+id/img_1"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="3.1"
-                        android:padding="15dp"
-                        android:tag="1">
-
-                        <ImageView
-                            android:id="@+id/cross11"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/cross"
-                            android:visibility="gone" />
-
-                        <ImageView
-                            android:id="@+id/circle11"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/circle"
-                            android:visibility="gone" />
-                    </FrameLayout>
-
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.15" />
-
-                    <FrameLayout
-                        android:id="@+id/img_2"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="3.1"
-                        android:padding="15dp"
-                        android:tag="2">
-
-                        <ImageView
-                            android:id="@+id/cross12"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/cross"
-                            android:visibility="gone" />
-
-                        <ImageView
-                            android:id="@+id/circle12"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/circle"
-                            android:visibility="gone" />
-                    </FrameLayout>
-
-
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.15" />
-
-                    <FrameLayout
-                        android:id="@+id/img_3"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="3.1"
-                        android:padding="15dp"
-                        android:tag="3">
-
-                        <ImageView
-                            android:id="@+id/cross13"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/cross"
-                            android:visibility="gone" />
-
-                        <ImageView
-                            android:id="@+id/circle13"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/circle"
-                            android:visibility="gone" />
-                    </FrameLayout>
-
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.25" />
-                </LinearLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.15" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="2.85"
-                    android:orientation="horizontal"
-                    android:weightSum="10">
-
-
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.15" />
-
-                    <FrameLayout
-                        android:id="@+id/img_4"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="3.1"
-                        android:padding="15dp"
-                        android:tag="4">
-
-                        <ImageView
-                            android:id="@+id/cross21"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/cross"
-                            android:visibility="gone" />
-
-                        <ImageView
-                            android:id="@+id/circle21"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/circle"
-                            android:visibility="gone" />
-                    </FrameLayout>
-
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.15" />
-
-                    <FrameLayout
-                        android:id="@+id/img_5"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="3.1"
-                        android:padding="15dp"
-                        android:tag="5">
-
-                        <ImageView
-                            android:id="@+id/cross22"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/cross"
-                            android:visibility="gone" />
-
-                        <ImageView
-                            android:id="@+id/circle22"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/circle"
-                            android:visibility="gone" />
-
-                    </FrameLayout>
-
-
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.15" />
-
-                    <FrameLayout
-                        android:id="@+id/img_6"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="3.1"
-                        android:padding="15dp"
-                        android:tag="6">
-
-                        <ImageView
-                            android:id="@+id/cross23"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/cross"
-                            android:visibility="gone" />
-
-                        <ImageView
-                            android:id="@+id/circle23"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/circle"
-                            android:visibility="gone" />
-                    </FrameLayout>
-
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.15" />
-                </LinearLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.15" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="3"
-                    android:orientation="horizontal"
-                    android:weightSum="10">
-
-
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.15" />
-
-                    <FrameLayout
-                        android:id="@+id/img_7"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="3.1"
-                        android:padding="15dp"
-                        android:tag="7">
-
-                        <ImageView
-                            android:id="@+id/cross31"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/cross"
-                            android:visibility="gone" />
-
-                        <ImageView
-                            android:id="@+id/circle31"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/circle"
-                            android:visibility="gone" />
-                    </FrameLayout>
-
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.15" />
-
-                    <FrameLayout
-                        android:id="@+id/img_8"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="3.1"
-                        android:padding="15dp"
-                        android:tag="8">
-
-                        <ImageView
-                            android:id="@+id/cross32"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/cross"
-                            android:visibility="gone" />
-
-                        <ImageView
-                            android:id="@+id/circle32"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/circle"
-                            android:visibility="gone" />
-                    </FrameLayout>
-
-
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.15" />
-
-                    <FrameLayout
-                        android:id="@+id/img_9"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="3.1"
-                        android:padding="15dp"
-                        android:tag="9">
-
-                        <ImageView
-                            android:id="@+id/cross33"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/cross"
-                            android:visibility="gone" />
-
-                        <ImageView
-                            android:id="@+id/circle33"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:src="@drawable/circle"
-                            android:visibility="gone" />
-                    </FrameLayout>
-
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.15" />
-                </LinearLayout>
+                    android:layout_weight="0.25" />
 
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:layout_weight="0.5" />
+                    android:layout_weight="0.25" />
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginRight="35dp"
+                    android:layout_weight="4"
+                    android:background="@drawable/grid"
+                    android:orientation="vertical"
+                    android:weightSum="10">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.5" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="2.85"
+                        android:orientation="horizontal"
+                        android:weightSum="10">
+
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.15" />
+
+                        <FrameLayout
+                            android:id="@+id/img_1"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="3.1"
+                            android:padding="15dp"
+                            android:tag="1">
+
+                            <ImageView
+                                android:id="@+id/cross11"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/cross"
+                                android:visibility="gone" />
+
+                            <ImageView
+                                android:id="@+id/circle11"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/circle"
+                                android:visibility="gone" />
+                        </FrameLayout>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.15" />
+
+                        <FrameLayout
+                            android:id="@+id/img_2"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="3.1"
+                            android:padding="15dp"
+                            android:tag="2">
+
+                            <ImageView
+                                android:id="@+id/cross12"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/cross"
+                                android:visibility="gone" />
+
+                            <ImageView
+                                android:id="@+id/circle12"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/circle"
+                                android:visibility="gone" />
+                        </FrameLayout>
+
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.15" />
+
+                        <FrameLayout
+                            android:id="@+id/img_3"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="3.1"
+                            android:padding="15dp"
+                            android:tag="3">
+
+                            <ImageView
+                                android:id="@+id/cross13"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/cross"
+                                android:visibility="gone" />
+
+                            <ImageView
+                                android:id="@+id/circle13"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/circle"
+                                android:visibility="gone" />
+                        </FrameLayout>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.25" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.15" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="2.85"
+                        android:orientation="horizontal"
+                        android:weightSum="10">
+
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.15" />
+
+                        <FrameLayout
+                            android:id="@+id/img_4"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="3.1"
+                            android:padding="15dp"
+                            android:tag="4">
+
+                            <ImageView
+                                android:id="@+id/cross21"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/cross"
+                                android:visibility="gone" />
+
+                            <ImageView
+                                android:id="@+id/circle21"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/circle"
+                                android:visibility="gone" />
+                        </FrameLayout>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.15" />
+
+                        <FrameLayout
+                            android:id="@+id/img_5"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="3.1"
+                            android:padding="15dp"
+                            android:tag="5">
+
+                            <ImageView
+                                android:id="@+id/cross22"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/cross"
+                                android:visibility="gone" />
+
+                            <ImageView
+                                android:id="@+id/circle22"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/circle"
+                                android:visibility="gone" />
+
+                        </FrameLayout>
+
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.15" />
+
+                        <FrameLayout
+                            android:id="@+id/img_6"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="3.1"
+                            android:padding="15dp"
+                            android:tag="6">
+
+                            <ImageView
+                                android:id="@+id/cross23"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/cross"
+                                android:visibility="gone" />
+
+                            <ImageView
+                                android:id="@+id/circle23"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/circle"
+                                android:visibility="gone" />
+                        </FrameLayout>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.15" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.15" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="3"
+                        android:orientation="horizontal"
+                        android:weightSum="10">
+
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.15" />
+
+                        <FrameLayout
+                            android:id="@+id/img_7"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="3.1"
+                            android:padding="15dp"
+                            android:tag="7">
+
+                            <ImageView
+                                android:id="@+id/cross31"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/cross"
+                                android:visibility="gone" />
+
+                            <ImageView
+                                android:id="@+id/circle31"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/circle"
+                                android:visibility="gone" />
+                        </FrameLayout>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.15" />
+
+                        <FrameLayout
+                            android:id="@+id/img_8"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="3.1"
+                            android:padding="15dp"
+                            android:tag="8">
+
+                            <ImageView
+                                android:id="@+id/cross32"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/cross"
+                                android:visibility="gone" />
+
+                            <ImageView
+                                android:id="@+id/circle32"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/circle"
+                                android:visibility="gone" />
+                        </FrameLayout>
+
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.15" />
+
+                        <FrameLayout
+                            android:id="@+id/img_9"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="3.1"
+                            android:padding="15dp"
+                            android:tag="9">
+
+                            <ImageView
+                                android:id="@+id/cross33"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/cross"
+                                android:visibility="gone" />
+
+                            <ImageView
+                                android:id="@+id/circle33"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/circle"
+                                android:visibility="gone" />
+                        </FrameLayout>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.15" />
+                    </LinearLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.5" />
+
+                </LinearLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.25" />
             </LinearLayout>
-
-
-            <View
+            <TextView
+                android:background="@drawable/layout_background"
+                android:layout_gravity="bottom|center_horizontal"
+                android:text="Kataklardan birini tanlang va do'stingiz tanlashini kuting"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="0.25" />
-        </LinearLayout>
+                android:layout_marginEnd="16dp"
+                android:textSize="20dp"
+                android:padding="4dp"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_height="wrap_content"/>
+        </FrameLayout>
 
 
 
-<!--    </LinearLayout>-->
+
+    </LinearLayout>
 
 
 

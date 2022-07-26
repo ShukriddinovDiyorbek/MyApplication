@@ -1,5 +1,6 @@
 package uz.gameuz.tictactoe.ui
 
+import android.app.Dialog
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -8,7 +9,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.google.firebase.database.*
-import uz.gameuz.tictactoe.Score
+import uz.gameuz.tictactoe.model.Score
+import uz.gameuz.tictactoe.databinding.CelebrateDialogBinding
+import uz.gameuz.tictactoe.databinding.DrawDialogBinding
 import uz.gameuz.tictactoe.databinding.FragmentHomeBinding
 import uz.gameuz.tictactoe.extensions.hide
 import uz.gameuz.tictactoe.extensions.show
@@ -18,36 +21,42 @@ class HomeFragment : Fragment() {
     lateinit var score: ArrayList<Int>
     lateinit var firebaseDatabase: FirebaseDatabase
     lateinit var reference: DatabaseReference
+
     var isFirstChange = true
     var position = true
+    var first = false
     var firstPosition = true
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
-
         firebaseDatabase = FirebaseDatabase.getInstance()
         reference = firebaseDatabase.getReference("arrayscores")
         score = ArrayList()
         initArray()
+        //    enteranceFunction()
+        initViews()
+        return binding.root
+    }
 
+    private fun enteranceFunction() {
         reference.child("Score").get().addOnSuccessListener { snapshot ->
             val child = snapshot.getValue(Score::class.java)
-            if(child!!.array != null){
+            if (child!!.array != null) {
                 score = child.array!!
             }
+
             position = child.position!!
             firstPosition = position
             controlShowAndHide()
             Log.d("@@@", snapshot.toString())
             Log.d("@@@", child.toString())
             Log.d("@@@", "fp: $firstPosition")
+            Log.d("@@@", "pos: $position")
         }.addOnFailureListener {
-            reference.child("Score").setValue(Score(true, score))
+            reference.child("Score").setValue(Score(true, score, false))
         }
-        initViews()
-        return binding.root
     }
 
     private fun initArray() {
@@ -63,16 +72,33 @@ class HomeFragment : Fragment() {
     }
 
     private fun initViews() {
-        controlShowAndHide()
         reference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val children = snapshot.children
-                for(child in children){
+
+                for (child in children) {
                     val value = child.getValue(Score::class.java)
                     score = value!!.array!!
-                    if (isFirstChange){
-                        firstPosition = value!!.position!!
+                    position = value!!.position!!
+//                    if (first) {
+//                        isFirstChange = true
+//                        position = true
+//                        firstPosition = true
+//                        first = false
+//                    }
+                    if (value!!.win == true) {
+                            openCelebrateDialog()
+
                     }
+                    if (isEqual()){
+                        openDrawDialog()
+                    }
+                    if (isFirstChange && !position) {
+                        firstPosition = false
+                        isFirstChange = false
+                    }
+                    Log.d("@@@", "add pos ${value!!.position!!} ")
+                    Log.d("@@@", "isFirstChange ${isFirstChange} ")
                     controlShowAndHide()
                     Log.d("@@@", score.toString())
                 }
@@ -85,6 +111,12 @@ class HomeFragment : Fragment() {
         })
         binding.apply {
             img1.setOnClickListener {
+                reference.child("Score").child("position").get().addOnSuccessListener {
+                    position = it.value as Boolean
+                    Log.d("@@@", "pos: $position")
+                    Log.d("@@@", "frspos: $firstPosition")
+                }
+                if (position == firstPosition) {
                     if (position) {
                         score[0] = 1
                         position = false
@@ -94,12 +126,23 @@ class HomeFragment : Fragment() {
                     }
                     isFirstChange = false
                     controlShowAndHide()
-                    reference.child("Score").setValue(Score(position, score))
+                    reference.child("Score").setValue(Score(position, score, false))
                     isWin()
                     img1.isEnabled = false
+                } else Toast.makeText(
+                    requireContext(),
+                    "Do'stingiz tanlashini kuting",
+                    Toast.LENGTH_SHORT
+                ).show()
+
             }
             img2.setOnClickListener {
-
+                reference.child("Score").child("position").get().addOnSuccessListener {
+                    position = it.value as Boolean
+                    Log.d("@@@", "pos: $position")
+                    Log.d("@@@", "frspos: $firstPosition")
+                }
+                if (position == firstPosition) {
                     if (position) {
                         score[1] = 1
                         position = false
@@ -109,12 +152,26 @@ class HomeFragment : Fragment() {
                     }
                     isFirstChange = false
                     controlShowAndHide()
-                    reference.child("Score").setValue(Score(position, score))
+                    reference.child("Score").setValue(Score(position, score, false))
                     isWin()
                     img2.isEnabled = false
+                } else {
+                    Toast.makeText(
+                        requireContext(),
+                        "Do'stingiz tanlashini kuting",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+
 
             }
             img3.setOnClickListener {
+                reference.child("Score").child("position").get().addOnSuccessListener {
+                    position = it.value as Boolean
+                    Log.d("@@@", "pos: $position")
+                    Log.d("@@@", "frspos: $firstPosition")
+                }
+                if (position == firstPosition) {
                     if (position) {
                         score[2] = 1
                         position = false
@@ -124,12 +181,26 @@ class HomeFragment : Fragment() {
                     }
                     isFirstChange = false
                     controlShowAndHide()
-                    reference.child("Score").setValue(Score(position, score))
+                    reference.child("Score").setValue(Score(position, score, false))
                     isWin()
                     img3.isEnabled = false
+                } else {
+                    Toast.makeText(
+                        requireContext(),
+                        "Do'stingiz tanlashini kuting",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+
 
             }
             img4.setOnClickListener {
+                reference.child("Score").child("position").get().addOnSuccessListener {
+                    position = it.value as Boolean
+                    Log.d("@@@", "pos: $position")
+                    Log.d("@@@", "frspos: $firstPosition")
+                }
+                if (position == firstPosition) {
                     if (position) {
                         score[3] = 1
                         position = false
@@ -139,12 +210,24 @@ class HomeFragment : Fragment() {
                     }
                     isFirstChange = false
                     controlShowAndHide()
-                    reference.child("Score").setValue(Score(position, score))
+                    reference.child("Score").setValue(Score(position, score, false))
                     isWin()
                     img4.isEnabled = false
-
+                } else {
+                    Toast.makeText(
+                        requireContext(),
+                        "Do'stingiz tanlashini kuting",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
             img5.setOnClickListener {
+                reference.child("Score").child("position").get().addOnSuccessListener {
+                    position = it.value as Boolean
+                    Log.d("@@@", "pos: $position")
+                    Log.d("@@@", "frspos: $firstPosition")
+                }
+                if (position == firstPosition) {
                     if (position) {
                         score[4] = 1
                         position = false
@@ -154,12 +237,24 @@ class HomeFragment : Fragment() {
                     }
                     isFirstChange = false
                     controlShowAndHide()
-                    reference.child("Score").setValue(Score(position, score))
+                    reference.child("Score").setValue(Score(position, score, false))
                     isWin()
                     img5.isEnabled = false
-
+                } else {
+                    Toast.makeText(
+                        requireContext(),
+                        "Do'stingiz tanlashini kuting",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
             img6.setOnClickListener {
+                reference.child("Score").child("position").get().addOnSuccessListener {
+                    position = it.value as Boolean
+                    Log.d("@@@", "pos: $position")
+                    Log.d("@@@", "frspos: $firstPosition")
+                }
+                if (position == firstPosition) {
                     if (position) {
                         score[5] = 1
                         position = false
@@ -169,11 +264,24 @@ class HomeFragment : Fragment() {
                     }
                     isFirstChange = false
                     controlShowAndHide()
-                    reference.child("Score").setValue(Score(position, score))
+                    reference.child("Score").setValue(Score(position, score, false))
                     isWin()
                     img6.isEnabled = false
+                } else {
+                    Toast.makeText(
+                        requireContext(),
+                        "Do'stingiz tanlashini kuting",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
             img7.setOnClickListener {
+                reference.child("Score").child("position").get().addOnSuccessListener {
+                    position = it.value as Boolean
+                    Log.d("@@@", "pos: $position")
+                    Log.d("@@@", "frspos: $firstPosition")
+                }
+                if (position == firstPosition) {
                     if (position) {
                         score[6] = 1
                         position = false
@@ -183,12 +291,24 @@ class HomeFragment : Fragment() {
                     }
                     isFirstChange = false
                     controlShowAndHide()
-                    reference.child("Score").setValue(Score(position, score))
+                    reference.child("Score").setValue(Score(position, score, false))
                     isWin()
                     img7.isEnabled = false
-
+                } else {
+                    Toast.makeText(
+                        requireContext(),
+                        "Do'stingiz tanlashini kuting",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
             img8.setOnClickListener {
+                reference.child("Score").child("position").get().addOnSuccessListener {
+                    position = it.value as Boolean
+                    Log.d("@@@", "pos: $position")
+                    Log.d("@@@", "frspos: $firstPosition")
+                }
+                if (position == firstPosition) {
                     if (position) {
                         score[7] = 1
                         position = false
@@ -198,12 +318,24 @@ class HomeFragment : Fragment() {
                     }
                     isFirstChange = false
                     controlShowAndHide()
-                    reference.child("Score").setValue(Score(position, score))
+                    reference.child("Score").setValue(Score(position, score, false))
                     isWin()
                     img8.isEnabled = false
-
+                } else {
+                    Toast.makeText(
+                        requireContext(),
+                        "Do'stingiz tanlashini kuting",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
             img9.setOnClickListener {
+                reference.child("Score").child("position").get().addOnSuccessListener {
+                    position = it.value as Boolean
+                    Log.d("@@@", "pos: $position")
+                    Log.d("@@@", "frspos: $firstPosition")
+                }
+                if (position == firstPosition) {
                     if (position) {
                         score[8] = 1
                         position = false
@@ -213,10 +345,16 @@ class HomeFragment : Fragment() {
                     }
                     isFirstChange = false
                     controlShowAndHide()
-                    reference.child("Score").setValue(Score(position, score))
+                    reference.child("Score").setValue(Score(position, score, false))
                     isWin()
                     img9.isEnabled = false
-
+                } else {
+                    Toast.makeText(
+                        requireContext(),
+                        "Do'stingiz tanlashini kuting",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
             Log.d("@@@", "position $position")
             binding.btnRefresh.setOnClickListener {
@@ -323,77 +461,121 @@ class HomeFragment : Fragment() {
 
     fun isWin() {
         if (score[0] == score[1] && score[0] == score[2]) {
-            if (score[0].equals(1)) {
-              //  Toast.makeText(requireContext(), "Player 1 yutdi", Toast.LENGTH_SHORT).show()
-            } else {
-                //Toast.makeText(requireContext(), "Player 2 yutdi", Toast.LENGTH_SHORT).show()
-            }
-            //setDefaultScores()
+            isFirstChange = true
+            position = true
+            firstPosition = true
+            reference.child("Score").setValue(Score(position, score, true))
         }
         if (score[3] == score[4] && score[3] == score[5]) {
-            if (score[3].equals(1)) {
-               // Toast.makeText(requireContext(), "Player 1 yutdi", Toast.LENGTH_SHORT).show()
-            } else {
-               // Toast.makeText(requireContext(), "Player 2 yutdi", Toast.LENGTH_SHORT).show()
-            }
-            //setDefaultScores()
+            isFirstChange = true
+            position = true
+            firstPosition = true
+            reference.child("Score").setValue(Score(position, score, true))
+
         }
         if (score[6] == score[7] && score[6] == score[8]) {
-            if (score[6].equals(1)) {
-             //   Toast.makeText(requireContext(), "Player 1 yutdi", Toast.LENGTH_SHORT).show()
-            } else {
-               // Toast.makeText(requireContext(), "Player 2 yutdi", Toast.LENGTH_SHORT).show()
-            }
-            //setDefaultScores()
+            isFirstChange = true
+            position = true
+            firstPosition = true
+            reference.child("Score").setValue(Score(position, score, true))
         }
+
         if (score[0] == score[3] && score[0] == score[6]) {
-            if (score[0].equals(1)) {
-              //  Toast.makeText(requireContext(), "Player 1 yutdi", Toast.LENGTH_SHORT).show()
-            } else {
-             //   Toast.makeText(requireContext(), "Player 2 yutdi", Toast.LENGTH_SHORT).show()
-            }
-           // setDefaultScores()
+            isFirstChange = true
+            position = true
+            firstPosition = true
+            reference.child("Score").setValue(Score(position, score, true))
         }
         if (score[1] == score[4] && score[1] == score[7]) {
-            if (score[1].equals(1)) {
-               // Toast.makeText(requireContext(), "Player 1 yutdi", Toast.LENGTH_SHORT).show()
-            } else {
-              //  Toast.makeText(requireContext(), "Player 2 yutdi", Toast.LENGTH_SHORT).show()
-            }
-           // setDefaultScores()
+            isFirstChange = true
+            position = true
+            firstPosition = true
+            reference.child("Score").setValue(Score(position, score, true))
         }
         if (score[2] == score[5] && score[2] == score[8]) {
-            if (score[2].equals(1)) {
-               // Toast.makeText(requireContext(), "Player 1 yutdi", Toast.LENGTH_SHORT).show()
-            } else {
-              //  Toast.makeText(requireContext(), "Player 2 yutdi", Toast.LENGTH_SHORT).show()
-            }
-            //setDefaultScores()
+            isFirstChange = true
+            position = true
+            firstPosition = true
+            reference.child("Score").setValue(Score(position, score, true))
         }
         if (score[0] == score[4] && score[0] == score[8]) {
-            if (score[0].equals(1)) {
-               // Toast.makeText(requireContext(), "Player 1 yutdi", Toast.LENGTH_SHORT).show()
-            } else {
-              //  Toast.makeText(requireContext(), "Player 2 yutdi", Toast.LENGTH_SHORT).show()
-            }
-            //setDefaultScores()
+            isFirstChange = true
+            position = true
+            firstPosition = true
+            reference.child("Score").setValue(Score(position, score, true))
         }
         if (score[2] == score[4] && score[2] == score[6]) {
-            if (score[2].equals(1)) {
-               // Toast.makeText(requireContext(), "Player 1 yutdi", Toast.LENGTH_SHORT).show()
-            } else {
-               // Toast.makeText(requireContext(), "Player 2 yutdi", Toast.LENGTH_SHORT).show()
-            }
-           // setDefaultScores()
+            isFirstChange = true
+            position = true
+            firstPosition = true
+            reference.child("Score").setValue(Score(position, score, true))
         }
     }
 
     fun setDefaultScores() {
         score.clear()
         initArray()
-        reference.child("Score").setValue(Score(position, score))
-        controlShowAndHide()
-        initViews()
+        first = true
+        setButtonsEnabled()
+        Log.d("@@@", "-----------------------------")
+        reference.child("Score").setValue(Score(true, score, false))
+        isFirstChange = true
+        position = true
+        firstPosition = true
+
     }
+
+    fun setButtonsEnabled() {
+        binding.apply {
+            isFirstChange = true
+            binding.img1.isEnabled = true
+            binding.img2.isEnabled = true
+            binding.img3.isEnabled = true
+            binding.img4.isEnabled = true
+            binding.img5.isEnabled = true
+            binding.img6.isEnabled = true
+            binding.img7.isEnabled = true
+            binding.img8.isEnabled = true
+            binding.img9.isEnabled = true
+        }
+    }
+
+    fun openCelebrateDialog() {
+        val dialog = Dialog(requireContext())
+        val dialogLayout =
+            CelebrateDialogBinding.inflate(LayoutInflater.from(requireContext()))
+        dialog.setContentView(dialogLayout.root)
+        dialog.apply {
+            dialogLayout.winok.setOnClickListener {
+                setDefaultScores()
+                dialog.dismiss()
+            }
+        }
+        dialog.show()
+    }
+    fun openDrawDialog() {
+        val dialog = Dialog(requireContext())
+        val dialogLayout =
+            DrawDialogBinding.inflate(LayoutInflater.from(requireContext()))
+        dialog.setContentView(dialogLayout.root)
+        dialog.apply {
+            dialogLayout.loseok.setOnClickListener {
+                setDefaultScores()
+                dialog.dismiss()
+            }
+        }
+        dialog.show()
+    }
+    fun isEqual() : Boolean{
+        for(i in score){
+            if (i ==0 || i == 1){
+                continue
+            } else {
+                return false
+            }
+        }
+        return true
+    }
+
 
 }

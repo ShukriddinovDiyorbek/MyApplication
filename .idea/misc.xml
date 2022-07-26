@@ -3,6 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/android_pc/AndroidStudioProjects/MyApplication/app/src/main/res/drawable/layout_background.xml" value="0.1945" />
+        <entry key="..\:/Users/android_pc/AndroidStudioProjects/MyApplication/app/src/main/res/layout/celebrate_dialog.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/android_pc/AndroidStudioProjects/MyApplication/app/src/main/res/layout/fragment_home.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/android_pc/AndroidStudioProjects/MyApplication/app/src/main/res/layout/fragment_splash.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/android_pc/AndroidStudioProjects/MyApplication/app/src/main/res/layout/lose_dialog.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/avtech/AndroidStudioProjects/TicTacToe/app/src/main/res/drawable/button_rounded_corner.xml" value="0.1935" />
         <entry key="..\:/Users/avtech/AndroidStudioProjects/TicTacToe/app/src/main/res/drawable/celebration_dialog.xml" value="0.1935" />
         <entry key="..\:/Users/avtech/AndroidStudioProjects/TicTacToe/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />

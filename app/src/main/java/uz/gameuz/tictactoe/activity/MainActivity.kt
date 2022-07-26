@@ -1,7 +1,8 @@
-package uz.gameuz.tictactoe
+package uz.gameuz.tictactoe.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import uz.gameuz.tictactoe.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

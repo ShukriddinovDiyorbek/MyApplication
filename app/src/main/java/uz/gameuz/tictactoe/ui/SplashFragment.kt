@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import uz.gameuz.tictactoe.R
+import uz.gameuz.tictactoe.broadcast.InternetBroadcastReceiver
 import uz.gameuz.tictactoe.databinding.FragmentSplashBinding
 
 class SplashFragment : Fragment() {
