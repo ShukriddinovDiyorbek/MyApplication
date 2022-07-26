@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1059345505687",
+    "project_id": "tictactoe-5b2e6",
+    "storage_bucket": "tictactoe-5b2e6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1059345505687:android:15544b93961f2a76d878d2",
+        "android_client_info": {
+          "package_name": "uz.gameuz.tictactoe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1059345505687-44sqnoausv3f70o8sdlj8ndsn88p40jn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "uz.gameuz.tictactoe",
+            "certificate_hash": "a90303f4bfdef4266044b0d81a65c8de2aa7488d"
+          }
+        },
+        {
+          "client_id": "1059345505687-ah5os4np7f3k3ik69rnkaoulivjc35vn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRWw0VJGPrOv7zXHKny3LOL9vxkDwQoao"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1059345505687-ah5os4np7f3k3ik69rnkaoulivjc35vn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

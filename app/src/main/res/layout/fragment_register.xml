@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp"
+    android:layout_height="match_parent"
+    tools:context=".ui.RegisterFragment">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        style="@style/LoginTextInputLayoutStyle"
+        android:layout_height="wrap_content">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tvname"
+            android:layout_width="match_parent"
+            android:hint="Name"
+            android:inputType="textCapWords"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        style="@style/LoginTextInputLayoutStyle"
+        android:layout_marginTop="4dp"
+        android:hint="Telefon raqam"
+        app:prefixText="+998"
+        app:prefixTextColor="#0A0A0A"
+        android:layout_height="wrap_content">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tvnumber"
+            android:layout_width="match_parent"
+            android:maxLength="9"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.textfield.TextInputLayout>
+    <Button
+        android:id="@+id/btnregister"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/button_rounded_corner"
+        android:text="Ro'yxatdan o'tish"
+        app:backgroundTint="@null"
+        android:textAllCaps="false"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
